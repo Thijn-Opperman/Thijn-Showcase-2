@@ -8,7 +8,7 @@ import './CircularText.css';
 const getRotationTransition = (duration: number, from: number, loop = true) => ({
   from,
   to: from + 360,
-  ease: 'linear',
+  ease: [0, 0, 1, 1] as const, // Linear easing as cubic bezier
   duration,
   type: 'tween' as const,
   repeat: loop ? Infinity : 0
