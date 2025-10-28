@@ -113,7 +113,7 @@ export function Hero() {
               className="relative z-10"
             >
               <Image
-                src="/profile.png"
+                src="/hero.png"
                 alt="Thijn Opperman"
                 width={600}
                 height={800}
