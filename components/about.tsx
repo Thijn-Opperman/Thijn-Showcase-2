@@ -1,7 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Sparkles, Target, Zap } from "lucide-react"
+import { Target, Zap } from "lucide-react"
+import Image from "next/image"
 
 export function About() {
   return (
@@ -28,8 +29,8 @@ export function About() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Image placeholder */}
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Photo */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -37,8 +38,18 @@ export function About() {
               transition={{ duration: 0.5 }}
               className="relative"
             >
-              <div className="aspect-square max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
-                <Sparkles className="w-32 h-32 text-primary/50" />
+              <div className="w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/30" style={{ height: '420px' }}>
+                <div style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
+                  <Image
+                    src="/thijnberg.png"
+                    alt="Thijn Opperman bij zonsondergang"
+                    width={400}
+                    height={600}
+                    className="w-full object-cover"
+                    style={{ objectPosition: 'center bottom', height: '100%', objectFit: 'cover' }}
+                    priority
+                  />
+                </div>
               </div>
             </motion.div>
 
@@ -48,7 +59,7 @@ export function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-6 flex flex-col justify-start"
             >
               <p className="text-lg text-foreground/80 leading-relaxed">
                 Mijn passie voor web development ontstond tijdens mijn studie,
