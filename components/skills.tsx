@@ -245,7 +245,7 @@ export function Skills() {
 
                     {/* Skills Grid - Large Visual Icons */}
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                      {skills.map((skill, skillIndex) => {
+                      {skills.map((skill: TechnicalSkill | SoftSkill, skillIndex: number) => {
                         const isTechnical = activeType === "technical"
                         const technicalSkill = skill as TechnicalSkill
                         const softSkill = skill as SoftSkill

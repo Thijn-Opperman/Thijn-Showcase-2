@@ -459,8 +459,8 @@ class App {
   onTouchMove(e: MouseEvent | TouchEvent) {
     if (!this.isDown) return;
     const x = (e as TouchEvent).touches ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
-    this.scroll.target = this.scroll.position + distance;
+    const distance = (this.start - x) * (this.scrollSpeed * 0.025);     
+    this.scroll.target = (this.scroll.position || 0) + distance;
   }
 
   onTouchUp() {
