@@ -229,81 +229,79 @@ export function Hero() {
 
         </div>
 
-        {/* Left side - Description and Buttons */}
+        {/* Call-to-Action Buttons - Left Side */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="absolute left-20 w-80 lg:w-96 z-50"
-          style={{
-            bottom: "25%",
-          }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="absolute left-20 bottom-32 z-50"
         >
-          <p className="text-white/90 text-lg mb-8 leading-relaxed">
-            Passionate about creating beautiful, user-friendly web experiences
-            through innovative design and clean code.
-          </p>
-
-          {/* Call-to-Action Buttons */}
-          <div className="flex gap-3">
+          <div className="flex flex-col gap-3 items-start">
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4ecb71" }}
+              initial={{ x: 0 }}
+              whileHover={{ 
+                scale: 1.05, 
+                x: 5,
+                backgroundColor: "#4ecb71",
+                color: "#000",
+                boxShadow: "0 0 30px rgba(78, 203, 113, 0.6)" 
+              }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-white text-sm font-medium transition-all relative overflow-hidden group"
+              className="inline-flex items-center justify-between gap-3 px-8 py-3 text-sm font-bold transition-all uppercase tracking-wide rounded-full backdrop-blur-md w-56"
               style={{ 
-                border: "1.5px solid #4ecb71",
-                borderRadius: "0",
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
-                backdropFilter: "blur(10px)",
+                backgroundColor: "transparent",
+                color: "#4ecb71",
+                border: "2px solid #4ecb71",
+                boxShadow: "0 0 15px rgba(78, 203, 113, 0.3)",
               }}
             >
-              <span className="relative z-10 flex items-center gap-1.5">
-              Contact
+              Get in touch
               <ArrowRight className="h-4 w-4" />
-              </span>
-              <div className="absolute inset-0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" style={{ background: 'linear-gradient(to right, rgba(78, 203, 113, 0), rgba(78, 203, 113, 0.1), rgba(78, 203, 113, 0))' }} />
             </motion.a>
             <motion.a
-              href="#about"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4ecb71" }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium transition-all relative overflow-hidden"
-              style={{ 
-                background: 'linear-gradient(135deg, #4ecb71 0%, #39a6cd 100%)',
+              href="/cv.pdf"
+              download
+              initial={{ x: 0 }}
+              whileHover={{ 
+                scale: 1.05,
+                x: -5,
+                backgroundColor: "#4ecb71",
                 color: "#000",
-                border: "1.5px solid #4ecb71",
-                borderRadius: "0",
-                boxShadow: "0 0 15px rgba(78, 203, 113, 0.4)",
+                boxShadow: "0 0 30px rgba(78, 203, 113, 0.6)" 
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-between gap-3 px-8 py-3 text-sm font-bold transition-all uppercase tracking-wide rounded-full backdrop-blur-md w-64"
+              style={{ 
+                backgroundColor: "transparent",
+                color: "#4ecb71",
+                border: "2px solid #4ecb71",
+                boxShadow: "0 0 15px rgba(78, 203, 113, 0.3)",
+                marginLeft: "40px",
               }}
             >
-              Projects
+              Download CV
               <ArrowRight className="h-4 w-4" />
             </motion.a>
           </div>
         </motion.div>
       </div>
 
-      {/* Logo and Branding - Top Right */}
+      {/* GitHub Link - Bottom Center */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="absolute top-24 right-20 flex items-center gap-3 z-30"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
       >
-        <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-          <span className="text-2xl font-bold" style={{ color: "#1a3a2f" }}>
-            T
-          </span>
-        </div>
         <a
           href="https://github.com/thijnopperman"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-white/80 hover:text-primary transition-colors"
+          className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/50 backdrop-blur-sm border border-primary/30 text-white/80 hover:text-primary hover:border-primary/60 transition-all"
         >
           <Github className="h-5 w-5" />
-          <span className="text-sm">Thijn-Opperman</span>
+          <span className="text-sm font-medium">Thijn-Opperman</span>
         </a>
       </motion.div>
 

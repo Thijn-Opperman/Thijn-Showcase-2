@@ -1,15 +1,17 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import PillNav from "@/components/PillNav"
 import { Footer } from "@/components/footer"
 import TiltedCard from "@/components/TiltedCard"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { WorkMethodology } from "@/components/work-methodology"
+import CircularGallery from "@/components/CircularGallery"
 
 export default function AboutPage() {
+
   return (
-    <main className="min-h-screen dark:bg-[#0a1f1a] bg-gray-50" style={{ 
+    <main className="min-h-screen dark:bg-[#0a1f1a] bg-gray-50 overflow-x-hidden" style={{ 
       background: 'linear-gradient(135deg, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 100%)',
     }}>
       {/* Theme Toggle */}
@@ -18,7 +20,7 @@ export default function AboutPage() {
       {/* Sticky Navigation */}
       <div className="fixed top-6 left-1/2" style={{ zIndex: 100, transform: 'translateX(-50%)' }}>
         <PillNav
-          logo="/t-logo.png"
+          logo="/logos/t-logo.png"
           logoAlt="Thijn Opperman"
           items={[
             { label: 'Home', href: '/' },
@@ -126,7 +128,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-white/90 text-lg leading-relaxed"
               >
-                Hi, I'm Thijn Opperman, a 20-year-old front-end developer from Gilze/Rijen, 
+                A 20-year-old front-end developer from Gilze/Rijen, 
                 currently studying ICT with a focus on Media and Front-End Development at Fontys. 
                 I'm passionate about learning new technologies and constantly improving my skills, 
                 always eager to explore and apply new ideas.
@@ -169,195 +171,56 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="relative py-12 px-4 sm:px-6 lg:px-20">
-        <div className="max-w-5xl mx-auto">
-          <motion.h2
+      {/* Personality Gallery Section */}
+      <section className="relative py-8 overflow-x-hidden">
+        <div className="px-4 sm:px-6 lg:px-20">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl lg:text-4xl font-black mb-8 text-center"
-            style={{
-              color: "#4ecb71",
-              textShadow: "0 0 30px rgba(78, 203, 113, 0.3)",
-              letterSpacing: "2px",
-            }}
+            className="text-center mb-3"
           >
-            Gallery
-          </motion.h2>
+            <motion.h2
+              className="text-2xl lg:text-4xl font-black mb-1"
+              style={{
+                color: "#4ecb71",
+                textShadow: "0 0 30px rgba(78, 203, 113, 0.3)",
+                letterSpacing: "2px",
+              }}
+            >
+              PERSONALITY GALLERY
+            </motion.h2>
+            <p className="text-white/70 text-xs md:text-sm">
+              Scroll or drag to explore moments that define me
+            </p>
+          </motion.div>
+        </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                viewport={{ once: true }}
-                transition={{ 
-                  duration: 0.5, 
-                  delay: index * 0.08,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                whileHover={{ 
-                  scale: 1.1, 
-                  rotate: index % 2 === 0 ? 3 : -3,
-                  zIndex: 10 
-                }}
-                className="relative aspect-square overflow-hidden rounded-xl border-2 border-primary/30 bg-gradient-to-br from-primary/15 to-primary/5 cursor-pointer group"
-                style={{
-                  boxShadow: "0 4px 20px rgba(78, 203, 113, 0.15)"
-                }}
-              >
-                {/* Placeholder for images */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-4xl md:text-5xl font-bold text-primary/30 group-hover:scale-110 transition-transform">
-                    {index + 1}
-                  </div>
-                </div>
-                
-                {/* Animated gradient overlay */}
-                <motion.div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    background: 'radial-gradient(circle at center, rgba(78, 203, 113, 0.2), transparent)'
-                  }}
-                />
-
-                {/* Corner accent */}
-                <div className="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-primary/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-              </motion.div>
-            ))}
-          </div>
+        <div 
+          className="relative overflow-hidden"
+          style={{ 
+            height: '550px',
+            width: '100vw',
+            left: '50%',
+            transform: 'translateX(-50%)'
+          }}
+        >
+          <CircularGallery 
+            bend={3} 
+            textColor="#4ecb71" 
+            borderRadius={0.05} 
+            scrollEase={0.02}
+            height="550px"
+          />
         </div>
       </section>
 
       {/* Timeline Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-20 pb-32">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl lg:text-5xl font-black mb-20"
-            style={{
-              color: "#4ecb71",
-              textShadow: "0 0 30px rgba(78, 203, 113, 0.3)",
-              letterSpacing: "2px",
-            }}
-          >
-            Timeline:
-          </motion.h2>
+      <WorkMethodology 
+        title="Timeline"
 
-          {/* Timeline Container */}
-          <div className="relative">
-            {/* Diagonal Line */}
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              style={{ zIndex: 0 }}
-            >
-              <motion.line
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 2, ease: "easeInOut" }}
-                x1="10%"
-                y1="10%"
-                x2="90%"
-                y2="90%"
-                stroke="#4ecb71"
-                strokeWidth="3"
-                strokeDasharray="10,5"
-                style={{
-                  filter: "drop-shadow(0 0 8px rgba(78, 203, 113, 0.6))",
-                }}
-              />
-            </svg>
-
-            {/* Timeline Items */}
-            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-y-24 gap-x-12 py-12">
-              {[
-                {
-                  year: "2018",
-                  title: "Started Coding Journey",
-                  description: "Discovered my passion for web development and began learning HTML, CSS, and JavaScript.",
-                },
-                {
-                  year: "2020",
-                  title: "Advanced Skills",
-                  description: "Mastered React and modern front-end frameworks, building my first portfolio projects.",
-                },
-                {
-                  year: "2022",
-                  title: "Fontys University",
-                  description: "Started studying ICT with a focus on Media and Front-End Development at Fontys.",
-                },
-                {
-                  year: "2024",
-                  title: "Professional Growth",
-                  description: "Continuously expanding my skills, working on real-world projects and building my portfolio.",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="relative flex flex-col items-center text-center"
-                  style={{ zIndex: 10 }}
-                >
-                  {/* Circle with year */}
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    className="relative w-32 h-32 rounded-full flex items-center justify-center mb-6 border-4 border-primary"
-                    style={{
-                      background: 'radial-gradient(circle, #0a1f1a 0%, #001010 100%)',
-                      boxShadow: "0 0 30px rgba(78, 203, 113, 0.5)",
-                    }}
-                  >
-                    <span className="text-3xl font-black text-primary">
-                      {item.year}
-                    </span>
-
-                    {/* Animated glow */}
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.2, 1],
-                        opacity: [0.5, 0.8, 0.5],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: index * 0.5,
-                      }}
-                      className="absolute inset-0 rounded-full"
-                      style={{
-                        background: 'radial-gradient(circle, #4ecb71 0%, transparent 70%)',
-                        filter: 'blur(20px)',
-                        zIndex: -1,
-                      }}
-                    />
-                  </motion.div>
-
-                  {/* Content Card */}
-                  <div className="max-w-xs p-6 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/10 to-primary/5 backdrop-blur-sm">
-                    <h3 className="text-xl font-bold text-primary mb-3">
-                      {item.title}
-                    </h3>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      />
 
       {/* Subtle glow effects */}
       <div 

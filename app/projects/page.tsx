@@ -46,7 +46,7 @@ export default function ProjectsPage() {
       {/* Sticky Navigation */}
       <div className="fixed top-6 left-1/2" style={{ zIndex: 100, transform: 'translateX(-50%)' }}>
         <PillNav
-          logo="/t-logo.png"
+          logo="/logos/t-logo.png"
           logoAlt="Thijn Opperman"
           items={[
             { label: 'Home', href: '/' },
