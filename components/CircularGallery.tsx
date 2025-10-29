@@ -6,7 +6,7 @@ import './CircularGallery.css';
 
 function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
   let timeout: ReturnType<typeof setTimeout>;
-  return function (...args: Parameters<T>) {
+  return function (this: any, ...args: Parameters<T>) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
@@ -63,7 +63,7 @@ class Title {
   text: string;
   textColor: string;
   font: string;
-  mesh: any;
+  mesh!: any;
 
   constructor({ gl, plane, renderer, text, textColor = '#ffffff', font = '30px sans-serif' }: TitleOptions) {
     autoBind(this);
@@ -135,21 +135,21 @@ class Media {
   extra: number = 0;
   geometry: any;
   gl: any;
-  image: string;
-  index: number;
-  length: number;
+  image!: string;
+  index!: number;
+  length!: number;
   renderer: any;
   scene: any;
   screen: any;
-  text: string;
+  text!: string;
   viewport: any;
-  bend: number;
-  textColor: string;
-  borderRadius: number;
+  bend!: number;
+  textColor!: string;
+  borderRadius!: number;
   font?: string;
-  plane: any;
-  program: any;
-  title: any;
+  plane!: any;
+  program!: any;
+  title!: any;
   speed: number = 0;
   x: number = 0;
   width: number = 0;
@@ -337,23 +337,23 @@ class App {
   scrollSpeed: number;
   scroll: { ease: number; current: number; target: number; last: number; position?: number };
   onCheckDebounce: any;
-  renderer: any;
-  gl: any;
-  camera: any;
-  scene: any;
-  screen: any;
-  viewport: any;
-  planeGeometry: any;
-  mediasImages: any[];
-  medias: Media[];
+  renderer!: any;
+  gl!: any;
+  camera!: any;
+  scene!: any;
+  screen!: any;
+  viewport!: any;
+  planeGeometry!: any;
+  mediasImages: any[] = [];
+  medias: Media[] = [];
   raf: number = 0;
   isDown: boolean = false;
   start: number = 0;
-  boundOnResize: any;
-  boundOnWheel: any;
-  boundOnTouchDown: any;
-  boundOnTouchMove: any;
-  boundOnTouchUp: any;
+  boundOnResize!: any;
+  boundOnWheel!: any;
+  boundOnTouchDown!: any;
+  boundOnTouchMove!: any;
+  boundOnTouchUp!: any;
 
   constructor(container: HTMLElement, options: AppOptions = {}) {
     document.documentElement.classList.remove('no-js');

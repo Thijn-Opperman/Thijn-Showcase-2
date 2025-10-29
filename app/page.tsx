@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero"
 import { Technologies } from "@/components/technologies"
 import { About } from "@/components/about"
 import { Services } from "@/components/services"
+import { WorkProcess } from "@/components/work-process"
 import { Skills } from "@/components/skills"
 import { Footer } from "@/components/footer"
 import PillNav from "@/components/PillNav"
@@ -34,6 +35,7 @@ export default function Home() {
       <Hero />
       <Technologies />
       <About />
+      <WorkProcess />
       <Services />
       <Skills />
       <Footer />

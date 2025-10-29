@@ -158,11 +158,11 @@ export default function AboutPage() {
                   <div className="text-sm text-white/70 mt-1">Years Old</div>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
-                  <div className="text-3xl font-bold text-primary">3+</div>
+                  <div className="text-3xl font-bold text-primary">1</div>
                   <div className="text-sm text-white/70 mt-1">Years Coding</div>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
-                  <div className="text-3xl font-bold text-primary">10+</div>
+                  <div className="text-3xl font-bold text-primary">5+</div>
                   <div className="text-sm text-white/70 mt-1">Projects</div>
                 </div>
               </motion.div>
