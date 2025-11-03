@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import PillNav from "@/components/PillNav"
 import { Footer } from "@/components/footer"
 import TiltedCard from "@/components/TiltedCard"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { WorkMethodology } from "@/components/work-methodology"
 import CircularGallery from "@/components/CircularGallery"
 
@@ -14,9 +13,6 @@ export default function AboutPage() {
     <main className="min-h-screen dark:bg-[#0a1f1a] bg-gray-50 overflow-x-hidden" style={{ 
       background: 'linear-gradient(135deg, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 100%)',
     }}>
-      {/* Theme Toggle */}
-      <ThemeToggle />
-
       {/* Sticky Navigation */}
       <div className="fixed top-6 left-1/2" style={{ zIndex: 100, transform: 'translateX(-50%)' }}>
         <PillNav
@@ -51,7 +47,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="grid lg:grid-cols-2 gap-12 items-start"
+            className="grid lg:grid-cols-2 gap-12 items-center"
           >
             {/* Image Left */}
             <motion.div
@@ -128,10 +124,10 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="text-white/90 text-lg leading-relaxed"
               >
-                A 20-year-old front-end developer from Gilze/Rijen, 
-                currently studying ICT with a focus on Media and Front-End Development at Fontys. 
-                I'm passionate about learning new technologies and constantly improving my skills, 
-                always eager to explore and apply new ideas.
+                Een 20-jarige front-end developer uit Gilze/Rijen, 
+                momenteel studerend ICT met focus op Media en Front-End Development aan Fontys. 
+                Ik ben gepassioneerd over het leren van nieuwe technologieën en het constant verbeteren van mijn vaardigheden, 
+                altijd bereid om nieuwe ideeën te verkennen en toe te passen.
               </motion.p>
 
               <motion.p
@@ -140,10 +136,10 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.7 }}
                 className="text-white/90 text-lg leading-relaxed"
               >
-                In my free time, I enjoy DJing, which allows me to combine creativity and technical 
-                skills by reading a crowd and choosing the right track at the right moment. I'm a 
-                social, motivated, and curious person, ready to dive into new challenges and 
-                continuously grow as a developer.
+                In mijn vrije tijd geniet ik van DJ-en, wat mij de mogelijkheid geeft om creativiteit en technische 
+                vaardigheden te combineren door een publiek te 'lezen' en het juiste nummer op het juiste moment te kiezen. Ik ben een 
+                sociaal, gemotiveerd en nieuwsgierig persoon, klaar om nieuwe uitdagingen aan te pakken en 
+                continu te groeien als developer.
               </motion.p>
 
               {/* Stats or highlights */}
@@ -155,15 +151,15 @@ export default function AboutPage() {
               >
                 <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
                   <div className="text-3xl font-bold text-primary">20</div>
-                  <div className="text-sm text-white/70 mt-1">Years Old</div>
+                  <div className="text-sm text-white/70 mt-1">Jaar</div>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
                   <div className="text-3xl font-bold text-primary">1</div>
-                  <div className="text-sm text-white/70 mt-1">Years Coding</div>
+                  <div className="text-sm text-white/70 mt-1">Jaar Code</div>
                 </div>
                 <div className="text-center p-4 rounded-xl bg-primary/10 border border-primary/20">
                   <div className="text-3xl font-bold text-primary">5+</div>
-                  <div className="text-sm text-white/70 mt-1">Projects</div>
+                  <div className="text-sm text-white/70 mt-1">Projecten</div>
                 </div>
               </motion.div>
             </motion.div>
@@ -192,7 +188,7 @@ export default function AboutPage() {
               PERSONALITY GALLERY
             </motion.h2>
             <p className="text-white/70 text-xs md:text-sm">
-              Scroll or drag to explore moments that define me
+              Scroll of sleep om momenten te verkennen die mij definiëren
             </p>
           </motion.div>
         </div>

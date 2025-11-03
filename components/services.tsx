@@ -7,44 +7,44 @@ import { Plus, Minus } from "lucide-react"
 const services = [
   {
     title: "UI/UX Design",
-    description: "Designing intuitive and visually appealing interfaces.",
-    expandedContent: "I create user-centered designs that not only look great but also provide exceptional user experiences. This includes user research, wireframing, prototyping, and usability testing to ensure your digital products are both beautiful and functional.",
+    description: "Het ontwerpen van intuïtieve en visueel aantrekkelijke interfaces.",
+    expandedContent: "Ik creëer gebruikersgerichte ontwerpen die er niet alleen geweldig uitzien maar ook uitzonderlijke gebruikerservaringen bieden. Dit omvat gebruikersonderzoek, wireframing, prototyping en usability testing om ervoor te zorgen dat jouw digitale producten zowel mooi als functioneel zijn.",
     color: "#4ecb71",
   },
   {
     title: "Website Design",
-    description: "Creative and modern website designs for your brand.",
-    expandedContent: "From landing pages to complex web applications, I design websites that perfectly represent your brand identity. Every design is crafted with attention to detail, ensuring it resonates with your target audience and converts visitors into customers.",
+    description: "Creatieve en moderne website ontwerpen voor jouw merk.",
+    expandedContent: "Van landingspagina's tot complexe webapplicaties, ik ontwerp websites die jouw merkidentiteit perfect vertegenwoordigen. Elk ontwerp is gemaakt met aandacht voor detail, zodat het resoneert met jouw doelgroep en bezoekers converteert naar klanten.",
     color: "#4ecb71",
   },
   {
     title: "Front-End Development",
-    description: "Fast, responsive websites with modern technologies.",
-    expandedContent: "I build websites using React, Next.js, and TypeScript to ensure high performance and maintainability. Clean code, modern patterns, and best practices are at the core of everything I develop.",
+    description: "Snelle, responsieve websites met moderne technologieën.",
+    expandedContent: "Ik bouw websites met React, Next.js en TypeScript om hoge performance en onderhoudbaarheid te garanderen. Schone code, moderne patronen en best practices staan centraal in alles wat ik ontwikkel.",
     color: "#4ecb71",
   },
   {
     title: "Responsive Development",
-    description: "Mobile-friendly websites for all devices.",
-    expandedContent: "Your website will look and work perfectly on every device - from smartphones to tablets to large desktop screens. I ensure seamless experiences across all screen sizes using mobile-first design principles.",
+    description: "Mobielvriendelijke websites voor alle apparaten.",
+    expandedContent: "Jouw website zal er perfect uitzien en werken op elk apparaat - van smartphones tot tablets tot grote desktopschermen. Ik zorg voor naadloze ervaringen op alle schermformaten met mobile-first ontwerpprincipes.",
     color: "#4ecb71",
   },
   {
     title: "Performance Optimization",
-    description: "Optimizing for smooth user experience and speed.",
-    expandedContent: "Speed matters. I optimize your website's performance through code splitting, lazy loading, image optimization, and other techniques to ensure fast load times and smooth interactions.",
+    description: "Optimaliseren voor soepele gebruikerservaring en snelheid.",
+    expandedContent: "Snelheid doet ertoe. Ik optimaliseer de performance van jouw website door code splitting, lazy loading, image optimization en andere technieken om snelle laadtijden en soepele interacties te garanderen.",
     color: "#4ecb71",
   },
   {
     title: "Animation & Interactions",
-    description: "Subtle animations that bring websites to life.",
-    expandedContent: "I add carefully crafted animations and micro-interactions that enhance user experience without being distracting. These subtle touches make your website feel modern, professional, and engaging.",
+    description: "Subtiele animaties die websites tot leven brengen.",
+    expandedContent: "Ik voeg zorgvuldig gemaakte animaties en micro-interacties toe die de gebruikerservaring verbeteren zonder afleidend te zijn. Deze subtiele details maken jouw website modern, professioneel en boeiend aanvoelen.",
     color: "#4ecb71",
   },
   {
     title: "Research & Analysis",
-    description: "Research on users, competitors, and trends.",
-    expandedContent: "Before starting any project, I conduct thorough research on your target audience, competitors, and industry trends. This ensures that design and development decisions are data-driven and aligned with your business goals.",
+    description: "Onderzoek naar gebruikers, concurrenten en trends.",
+    expandedContent: "Voordat ik aan een project begin, doe ik grondig onderzoek naar jouw doelgroep, concurrenten en industrietrends. Dit zorgt ervoor dat ontwerp- en ontwikkelingsbeslissingen data-gedreven zijn en aansluiten bij jouw bedrijfsdoelen.",
     color: "#4ecb71",
   },
 ]
@@ -252,10 +252,10 @@ export function Services() {
                 letterSpacing: "1px",
               }}
             >
-              What I can do for you
+              Wat ik voor jou kan doen
             </motion.h2>
             <p className="text-white/80 text-base max-w-2xl mx-auto">
-              From concept to realization, I'll help you with every step
+              Van concept tot realisatie, ik help jou bij elke stap
             </p>
           </motion.div>
 

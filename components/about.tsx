@@ -36,7 +36,7 @@ export function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative"
+              className="relative group"
             >
               <div className="w-full max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border-4 border-primary/30" style={{ height: '420px' }}>
                 <div style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
@@ -45,7 +45,7 @@ export function About() {
                     alt="Thijn Opperman bij zonsondergang"
                     width={400}
                     height={600}
-                    className="w-full object-cover"
+                    className="w-full object-cover transition-all duration-300 grayscale group-hover:grayscale-0"
                     style={{ objectPosition: 'center bottom', height: '100%', objectFit: 'cover' }}
                     priority
                   />

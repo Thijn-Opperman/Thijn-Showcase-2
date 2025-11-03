@@ -196,6 +196,7 @@ class Media {
         uniform vec2 uPlaneSizes;
         uniform sampler2D tMap;
         uniform float uBorderRadius;
+        uniform float uGrayscale;
         varying vec2 vUv;
         
         float roundedBoxSDF(vec2 p, vec2 b, float r) {
@@ -214,6 +215,10 @@ class Media {
           );
           vec4 color = texture2D(tMap, uv);
           
+          // Convert to grayscale if needed
+          float grayscale = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+          color.rgb = mix(color.rgb, vec3(grayscale), uGrayscale);
+          
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
           
           float edgeSmooth = 0.002;
@@ -228,7 +233,8 @@ class Media {
         uImageSizes: { value: [0, 0] },
         uSpeed: { value: 0 },
         uTime: { value: 100 * Math.random() },
-        uBorderRadius: { value: this.borderRadius }
+        uBorderRadius: { value: this.borderRadius },
+        uGrayscale: { value: 1.0 }
       },
       transparent: true
     });
@@ -354,6 +360,9 @@ class App {
   boundOnTouchDown!: any;
   boundOnTouchMove!: any;
   boundOnTouchUp!: any;
+  boundOnMouseMove!: any;
+  boundOnMouseLeave!: any;
+  hoveredMedia: Media | null = null;
 
   constructor(container: HTMLElement, options: AppOptions = {}) {
     document.documentElement.classList.remove('no-js');
@@ -468,6 +477,62 @@ class App {
     this.onCheck();
   }
 
+  onMouseMove(e: MouseEvent) {
+    const rect = this.container.getBoundingClientRect();
+    const mouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const mouseY = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    
+    // Convert mouse coordinates to world space
+    const worldX = (mouseX * this.viewport.width) / 2;
+    const worldY = -(mouseY * this.viewport.height) / 2;
+    
+    // Find which media is being hovered
+    let closestMedia: Media | null = null;
+    let closestDistance = Infinity;
+    
+    this.medias.forEach(media => {
+      const mediaX = media.plane.position.x;
+      const mediaY = media.plane.position.y;
+      const mediaWidth = media.plane.scale.x;
+      const mediaHeight = media.plane.scale.y;
+      
+      // Calculate distance from mouse to center of media
+      const dx = worldX - mediaX;
+      const dy = worldY - mediaY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      // Check if mouse is within bounds of the media
+      if (Math.abs(dx) < mediaWidth / 2 && Math.abs(dy) < mediaHeight / 2) {
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestMedia = media;
+        }
+      }
+    });
+
+    // Update grayscale for all medias
+    this.medias.forEach(media => {
+      if (media === closestMedia) {
+        media.program.uniforms.uGrayscale.value = 0.0;
+        this.hoveredMedia = media;
+      } else {
+        media.program.uniforms.uGrayscale.value = 1.0;
+      }
+    });
+    
+    if (!closestMedia && this.hoveredMedia) {
+      this.hoveredMedia = null;
+    }
+  }
+
+  onMouseLeave() {
+    // Reset all photos to grayscale when mouse leaves the container
+    this.medias.forEach(media => {
+      media.program.uniforms.uGrayscale.value = 1.0;
+    });
+    this.hoveredMedia = null;
+  }
+
   onWheel(e: WheelEvent) {
     const delta = e.deltaY;
     this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
@@ -517,15 +582,20 @@ class App {
     this.boundOnTouchDown = this.onTouchDown.bind(this);
     this.boundOnTouchMove = this.onTouchMove.bind(this);
     this.boundOnTouchUp = this.onTouchUp.bind(this);
+    this.boundOnMouseMove = this.onMouseMove.bind(this);
+    this.boundOnMouseLeave = this.onMouseLeave.bind(this);
     window.addEventListener('resize', this.boundOnResize);
     window.addEventListener('mousewheel', this.boundOnWheel);
     window.addEventListener('wheel', this.boundOnWheel);
     window.addEventListener('mousedown', this.boundOnTouchDown);
-    window.addEventListener('mousemove', this.boundOnTouchMove);
     window.addEventListener('mouseup', this.boundOnTouchUp);
     window.addEventListener('touchstart', this.boundOnTouchDown);
-    window.addEventListener('touchmove', this.boundOnTouchMove);
     window.addEventListener('touchend', this.boundOnTouchUp);
+    // Add both handlers for mousemove: one for dragging, one for hover
+    window.addEventListener('mousemove', this.boundOnTouchMove);
+    window.addEventListener('mousemove', this.boundOnMouseMove);
+    window.addEventListener('touchmove', this.boundOnTouchMove);
+    this.container.addEventListener('mouseleave', this.boundOnMouseLeave);
   }
 
   destroy() {
@@ -534,11 +604,13 @@ class App {
     window.removeEventListener('mousewheel', this.boundOnWheel);
     window.removeEventListener('wheel', this.boundOnWheel);
     window.removeEventListener('mousedown', this.boundOnTouchDown);
-    window.removeEventListener('mousemove', this.boundOnTouchMove);
     window.removeEventListener('mouseup', this.boundOnTouchUp);
     window.removeEventListener('touchstart', this.boundOnTouchDown);
-    window.removeEventListener('touchmove', this.boundOnTouchMove);
     window.removeEventListener('touchend', this.boundOnTouchUp);
+    window.removeEventListener('mousemove', this.boundOnTouchMove);
+    window.removeEventListener('mousemove', this.boundOnMouseMove);
+    window.removeEventListener('touchmove', this.boundOnTouchMove);
+    this.container.removeEventListener('mouseleave', this.boundOnMouseLeave);
     if (this.renderer && this.renderer.gl && this.renderer.gl.canvas.parentNode) {
       this.renderer.gl.canvas.parentNode.removeChild(this.renderer.gl.canvas);
     }

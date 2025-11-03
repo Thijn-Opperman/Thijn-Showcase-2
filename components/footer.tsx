@@ -15,7 +15,7 @@ export function Footer() {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/thijnopperman",
+      href: "https://github.com/Thijn-Opperman",
     },
     {
       icon: Linkedin,
@@ -25,7 +25,7 @@ export function Footer() {
     {
       icon: Mail,
       label: "Email",
-      href: "mailto:thijn.opperman@outlook.com",
+      href: "mailto:t.opperman@student.fontys.nl",
     },
   ]
 

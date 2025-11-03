@@ -18,25 +18,35 @@ import {
   Handshake,
 } from "lucide-react"
 import Image from "next/image"
+import { 
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiReact,
+  SiNextdotjs,
+  SiFigma,
+  SiGithub,
+  SiVercel
+} from "react-icons/si"
 
 // Technical skills without levels - pure visual showcase
 const technicalSkills = {
   "Programming Languages": [
-    { name: "JavaScript", icon: "/logos/javascript.svg" },
-    { name: "HTML", icon: "/logos/html5.svg" },
-    { name: "CSS", icon: "/logos/css.svg" },
+    { name: "JavaScript", iconComponent: SiJavascript },
+    { name: "HTML", iconComponent: SiHtml5 },
+    { name: "CSS", iconComponent: SiCss3 },
   ],
   "Frameworks & Libraries": [
-    { name: "React", icon: "/logos/react.svg" },
-    { name: "Next.js", icon: "/logos/nextdotjs.svg" },
+    { name: "React", iconComponent: SiReact },
+    { name: "Next.js", iconComponent: SiNextdotjs },
   ],
   "Design Tools": [
-    { name: "Figma", icon: "/logos/figma.svg" },
+    { name: "Figma", iconComponent: SiFigma },
   ],
   "Development Tools": [
     { name: "VS Code", icon: "/logos/vscode.png" },
-    { name: "GitHub", icon: "https://cdn.simpleicons.org/github/181717" },
-    { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/000000" },
+    { name: "GitHub", iconComponent: SiGithub },
+    { name: "Vercel", iconComponent: SiVercel },
     { name: "Cursor AI", icon: "/logos/cursor.png" },
   ],
 }
@@ -68,7 +78,8 @@ type SkillType = "technical" | "soft"
 
 interface TechnicalSkill {
   name: string
-  icon: string | null
+  icon?: string | null
+  iconComponent?: any
   isMonochrome?: boolean
   fallbackIcon?: string
 }
@@ -250,6 +261,7 @@ export function Skills() {
                         const technicalSkill = skill as TechnicalSkill
                         const softSkill = skill as SoftSkill
                         const SkillIcon = isTechnical ? null : softSkill.icon
+                        const TechIcon = isTechnical ? technicalSkill.iconComponent : null
                         
                         return (
                           <motion.div
@@ -279,32 +291,44 @@ export function Skills() {
                             >
                               {/* Icon/Logo - Large and Centered */}
                               <div className="relative z-10 mb-3 flex items-center justify-center">
-                              {isTechnical && technicalSkill.icon ? (
-                                  <div className="relative w-16 h-16 flex items-center justify-center">
+                              {TechIcon ? (
+                                  <div
+                                    className="w-16 h-16 rounded-xl flex items-center justify-center"
+                                    style={{
+                                      background: 'rgba(78, 203, 113, 0.15)',
+                                      border: '2px solid rgba(78, 203, 113, 0.3)',
+                                    }}
+                                  >
+                                    <TechIcon size={32} style={{ color: '#4ecb71' }} />
+                                  </div>
+                                ) : isTechnical && technicalSkill.icon ? (
+                                  <div
+                                    className="w-16 h-16 rounded-xl flex items-center justify-center"
+                                    style={{
+                                      background: 'rgba(78, 203, 113, 0.15)',
+                                      border: '2px solid rgba(78, 203, 113, 0.3)',
+                                    }}
+                                  >
                                     {technicalSkill.icon.startsWith('http') ? (
                                       <img
                                         src={technicalSkill.icon}
                                         alt={technicalSkill.name}
-                                        width={64}
-                                        height={64}
+                                        width={32}
+                                        height={32}
                                         className="object-contain"
                                         style={{ 
-                                          filter: technicalSkill.isMonochrome 
-                                            ? 'brightness(0) saturate(100%)' 
-                                            : 'none' 
+                                          filter: 'brightness(0) saturate(100%) invert(58%) sepia(95%) saturate(3533%) hue-rotate(115deg) brightness(91%) contrast(85%) drop-shadow(0 0 10px rgba(78, 203, 113, 0.6)) drop-shadow(0 0 20px rgba(78, 203, 113, 0.3))'
                                         }}
                                       />
                                     ) : (
                                       <Image
                                         src={technicalSkill.icon}
                                         alt={technicalSkill.name}
-                                        width={64}
-                                        height={64}
+                                        width={32}
+                                        height={32}
                                         className="object-contain"
                                         style={{
-                                          filter: technicalSkill.isMonochrome
-                                            ? 'brightness(0) saturate(100%)'
-                                            : undefined
+                                          filter: 'brightness(0) saturate(100%) invert(58%) sepia(95%) saturate(3533%) hue-rotate(115deg) brightness(91%) contrast(85%) drop-shadow(0 0 10px rgba(78, 203, 113, 0.6)) drop-shadow(0 0 20px rgba(78, 203, 113, 0.3))'
                                         }}
                                       />
                                     )}

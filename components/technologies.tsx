@@ -2,74 +2,68 @@
 
 import { motion } from "framer-motion"
 import LogoLoop from "./LogoLoop"
-
-const technologies = [
-  { 
-    src: "/logos/figma.svg",
-    alt: "Figma",
-    title: "Figma",
-    width: 48,
-    height: 48
-  },
-  { 
-    src: "/logos/photopea.svg",
-    alt: "Photoshop",
-    title: "Photoshop",
-    width: 48,
-    height: 48
-  },
-  { 
-    src: "/logos/vscode.svg",
-    alt: "VS Code",
-    title: "VS Code",
-    width: 48,
-    height: 48
-  },
-  { 
-    src: "/logos/chatgpt.svg",
-    alt: "ChatGPT",
-    title: "ChatGPT",
-    width: 48,
-    height: 48
-  },
-  { 
-    src: "/logos/react.svg",
-    alt: "React",
-    title: "React",
-    width: 48,
-    height: 48
-  },
-  { 
-    src: "/logos/nextdotjs.svg",
-    alt: "Next.js",
-    title: "Next.js",
-    width: 48,
-    height: 48
-  },
-  { 
-    src: "/logos/html5.svg",
-    alt: "HTML",
-    title: "HTML",
-    width: 48,
-    height: 48
-  },
-  { 
-    src: "/logos/css.svg",
-    alt: "CSS",
-    title: "CSS",
-    width: 48,
-    height: 48
-  },
-  { 
-    src: "/logos/javascript.svg",
-    alt: "JavaScript",
-    title: "JavaScript",
-    width: 48,
-    height: 48
-  },
-]
+import { 
+  SiFigma, 
+  SiAdobephotoshop,
+  SiOpenai,
+  SiReact,
+  SiNextdotjs,
+  SiHtml5,
+  SiCss3,
+  SiJavascript
+} from "react-icons/si"
 
 export function Technologies() {
+  const technologies = [
+    { 
+      node: <SiFigma size={48} style={{ color: '#4ecb71' }} />,
+      alt: "Figma",
+      title: "Figma"
+    },
+    { 
+      node: <SiAdobephotoshop size={48} style={{ color: '#4ecb71' }} />,
+      alt: "Photoshop",
+      title: "Photoshop"
+    },
+    { 
+      src: "/logos/vscode.svg",
+      alt: "VS Code",
+      title: "VS Code",
+      width: 48,
+      height: 48
+    },
+    { 
+      node: <SiOpenai size={48} style={{ color: '#4ecb71' }} />,
+      alt: "ChatGPT",
+      title: "ChatGPT"
+    },
+    { 
+      node: <SiReact size={48} style={{ color: '#4ecb71' }} />,
+      alt: "React",
+      title: "React"
+    },
+    { 
+      node: <SiNextdotjs size={48} style={{ color: '#4ecb71' }} />,
+      alt: "Next.js",
+      title: "Next.js"
+    },
+    { 
+      node: <SiHtml5 size={48} style={{ color: '#4ecb71' }} />,
+      alt: "HTML",
+      title: "HTML"
+    },
+    { 
+      node: <SiCss3 size={48} style={{ color: '#4ecb71' }} />,
+      alt: "CSS",
+      title: "CSS"
+    },
+    { 
+      node: <SiJavascript size={48} style={{ color: '#4ecb71' }} />,
+      alt: "JavaScript",
+      title: "JavaScript"
+    },
+  ]
+
   return (
     <section className="py-2 -mt-2" style={{ background: '#000000' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">

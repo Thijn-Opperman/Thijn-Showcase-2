@@ -10,7 +10,7 @@ const steps = [
     title: "2024 - Havo diploma",
     number: "01",
     description:
-      "I obtained my HAVO diploma with the profiles Nature & Technology (N&T) and Nature & Health (N&G). In addition, I completed the Technasium program, where I gained experience in technical and research-based thinking, collaboration, and developing out-of-the-box solutions.",
+      "Ik behaalde mijn HAVO diploma met de profielen Natuur & Techniek (N&T) en Natuur & Gezondheid (N&G). Bovendien voltooide ik het Technasium programma, waar ik ervaring opdeed met technisch en onderzoekend denken, samenwerking en het ontwikkelen van out-of-the-box oplossingen.",
     color: "#4ECB71",
   },
   {
@@ -18,7 +18,7 @@ const steps = [
     title: "2024 - ICT Media",
     number: "02",
     description:
-      "Having developed an interest in ICT through my Technasium education, I started studying ICT. After completing my first semester, I decided to continue in the Media specialization, allowing me to combine technical skills with creativity in areas such as digital media, content creation, and multimedia applications.",
+      "Na interesse in ICT te hebben ontwikkeld door mijn Technasium opleiding, begon ik aan ICT te studeren. Na het voltooien van mijn eerste semester besloot ik door te gaan in de Media specialisatie, waardoor ik technische vaardigheden kan combineren met creativiteit in gebieden zoals digitale media, content creatie en multimedia toepassingen.",
     color: "#4ECB71",
   },
   {
@@ -26,15 +26,15 @@ const steps = [
     title: "2025 - Front-End Development",
     number: "03",
     description:
-      "After completing my first and second semesters, I successfully obtained my propaedeutic diploma, which I am very proud of. I am currently in my third semester, specializing in Front-End Development, where I continue to build my skills in creating engaging and user-friendly digital experiences.",
+      "Na het voltooien van mijn eerste en tweede semester behaalde ik succesvol mijn propedeuse diploma, waar ik erg trots op ben. Ik zit momenteel in mijn derde semester, gespecialiseerd in Front-End Development, waar ik mijn vaardigheden blijf opbouwen in het creëren van boeiende en gebruiksvriendelijke digitale ervaringen.",
     color: "#4ECB71",
   },
   {
     image: "/timeline/thijnvooraanzicht.jpg",
-    title: "Now - Future",
+    title: "Nu - Toekomst",
     number: "04",
     description:
-      "I am currently in the middle of my third semester in Front-End Development, which I really enjoy. I hope to learn a lot during this time. I am not yet sure what I want to do after this semester, as I find many things interesting. I am curious about a wide range of topics and highly motivated to learn new things!",
+      "Ik zit momenteel midden in mijn derde semester in Front-End Development, waar ik echt van geniet. Ik hoop tijdens deze tijd veel te leren. Ik weet nog niet zeker wat ik na dit semester wil doen, omdat ik veel dingen interessant vind. Ik ben nieuwsgierig naar een breed scala aan onderwerpen en zeer gemotiveerd om nieuwe dingen te leren!",
     color: "#4ECB71",
   },
 ]
@@ -195,10 +195,10 @@ export function WorkMethodology({
                         <div className={`grid gap-6 md:gap-8 md:grid-cols-2`}>
                           {/* Content Section - Left for even, Right for odd */}
                           <div 
-                            className={`relative z-10 flex flex-col justify-center ${
+                            className={`relative z-10 flex flex-col justify-start ${
                               isEven 
                                 ? "md:order-1 md:text-left" 
-                                : "md:order-2 md:text-right"
+                                : "md:order-2 md:text-left"
                             }`}
                           >
                             {/* Title Section */}

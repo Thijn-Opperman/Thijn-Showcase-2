@@ -6,14 +6,10 @@ import { WorkProcess } from "@/components/work-process"
 import { Skills } from "@/components/skills"
 import { Footer } from "@/components/footer"
 import PillNav from "@/components/PillNav"
-import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Home() {
   return (
     <main>
-      {/* Theme Toggle */}
-      <ThemeToggle />
-
       {/* Sticky Navigation */}
       <div className="fixed top-6 left-1/2" style={{ zIndex: 100, transform: 'translateX(-50%)' }}>
         <PillNav

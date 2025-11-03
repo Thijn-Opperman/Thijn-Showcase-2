@@ -5,22 +5,22 @@ import { motion } from "framer-motion"
 const cycleSteps = [
   {
     title: "Research",
-    description: "Understanding users, competitors, and market trends to inform decisions.",
+    description: "Het begrijpen van gebruikers, concurrenten en markttrends om beslissingen te informeren.",
     angle: 0, // Top
   },
   {
     title: "Design",
-    description: "Creating intuitive interfaces and user experiences that solve problems.",
+    description: "Het creëren van intuïtieve interfaces en gebruikerservaringen die problemen oplossen.",
     angle: 90, // Right
   },
   {
     title: "Code",
-    description: "Building robust, performant solutions with modern technologies.",
+    description: "Het bouwen van robuuste, performante oplossingen met moderne technologieën.",
     angle: 180, // Bottom
   },
   {
     title: "Test",
-    description: "Validating solutions through user testing and continuous iteration.",
+    description: "Het valideren van oplossingen door gebruikers tests en continue iteratie.",
     angle: 270, // Left
   },
 ]
@@ -68,10 +68,10 @@ export function WorkProcess() {
                 letterSpacing: "1px",
               }}
             >
-              My Work Process
+              Mijn Werkproces
             </motion.h2>
             <p className="text-white/80 text-base max-w-2xl mx-auto">
-              An iterative cycle that continuously improves to deliver better concepts
+              Een iteratieve cyclus die continu verbetert om betere concepten te leveren
             </p>
           </motion.div>
 

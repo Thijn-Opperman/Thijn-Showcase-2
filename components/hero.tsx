@@ -260,8 +260,7 @@ export function Hero() {
               <ArrowRight className="h-4 w-4" />
             </motion.a>
             <motion.a
-              href="/cv.pdf"
-              download
+              href="/cv"
               initial={{ x: 0 }}
               whileHover={{ 
                 scale: 1.05,
@@ -295,7 +294,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
       >
         <a
-          href="https://github.com/thijnopperman"
+          href="https://github.com/Thijn-Opperman"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/50 backdrop-blur-sm border border-primary/30 text-white/80 hover:text-primary hover:border-primary/60 transition-all"
