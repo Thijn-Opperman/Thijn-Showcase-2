@@ -1,11 +1,17 @@
 .pill-nav-container {
-  position: relative;
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
 }
 
 @media (max-width: 768px) {
   .pill-nav-container {
-    width: 100%;
-    left: 0;
+    top: 16px;
+    width: calc(100% - 32px);
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -233,4 +239,3 @@
   background-color: var(--base);
   color: var(--hover-text, #4ecb71);
 }
-

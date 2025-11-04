@@ -249,7 +249,7 @@ export function WorkMethodology({
                               src={step.image}
                               alt={step.title}
                               fill
-                              className="object-cover"
+                              className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
                               style={{ objectPosition: "center 25%" }}
                               sizes="(max-width: 768px) 100vw, 400px"
                               quality={95}

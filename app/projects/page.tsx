@@ -86,23 +86,21 @@ Het project verliep iteratief: we bespraken voortgang en feedback regelmatig, zo
     <main className="min-h-screen dark:bg-[#0a1f1a] bg-gray-50" style={{ 
       background: 'linear-gradient(135deg, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 100%)',
     }}>
-      {/* Sticky Navigation */}
-      <div className="fixed top-6 left-1/2" style={{ zIndex: 100, transform: 'translateX(-50%)' }}>
-        <PillNav
-          logo="/logos/t-logo.png"
-          logoAlt="Thijn Opperman"
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'About me', href: '/about' },
-            { label: 'Projects', href: '/projects' }
-          ]}
-          activeHref="/projects"
-          baseColor="#000"
-          pillColor="#4ecb71"
-          hoveredPillTextColor="#000"
-          pillTextColor="#000"
-        />
-      </div>
+      {/* Navigation - Logo links, Nav rechts */}
+      <PillNav
+        logo="/logos/t-logo.png"
+        logoAlt="Thijn Opperman"
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'About me', href: '/about' },
+          { label: 'Projects', href: '/projects' }
+        ]}
+        activeHref="/projects"
+        baseColor="#000"
+        pillColor="#4ecb71"
+        hoveredPillTextColor="#000"
+        pillTextColor="#000"
+      />
 
       {/* Grid Background Pattern */}
       <div className="fixed inset-0 opacity-8 pointer-events-none" style={{
