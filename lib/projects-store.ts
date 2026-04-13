@@ -1,4 +1,5 @@
 import type { Project, ProjectsFile } from "@/lib/project-types";
+import { createClient } from "@supabase/supabase-js";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 type ProjectRow = {
@@ -23,6 +24,17 @@ type ProjectRow = {
 
 function sortProjects(list: Project[]): Project[] {
   return [...list].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+}
+
+function getSupabaseReadClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const readKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !readKey) {
+    throw new Error("Missing NEXT_PUBLIC_SUPABASE_URL or read key for projects query.");
+  }
+  return createClient(url, readKey, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
 }
 
 function asObj(value: unknown): Record<string, unknown> {
@@ -105,7 +117,7 @@ function projectToRow(project: Project): Record<string, unknown> {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  const supabase = getSupabaseAdmin();
+  const supabase = getSupabaseReadClient();
   const { data, error } = await supabase
     .from("projects")
     .select("*")
