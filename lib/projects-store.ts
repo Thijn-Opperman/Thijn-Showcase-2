@@ -1,5 +1,5 @@
 import type { Project, ProjectsFile } from "@/lib/project-types";
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 
 type ProjectRow = {
@@ -26,7 +26,7 @@ function sortProjects(list: Project[]): Project[] {
   return [...list].sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
 }
 
-function getSupabaseReadClient() {
+function getSupabaseReadClient(): SupabaseClient {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const readKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !readKey) {
@@ -35,6 +35,10 @@ function getSupabaseReadClient() {
   return createClient(url, readKey, {
     auth: { persistSession: false, autoRefreshToken: false },
   });
+}
+
+async function selectProjects(client: SupabaseClient) {
+  return client.from("projects").select("*").order("order", { ascending: true });
 }
 
 function asObj(value: unknown): Record<string, unknown> {
@@ -117,15 +121,25 @@ function projectToRow(project: Project): Record<string, unknown> {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  const supabase = getSupabaseReadClient();
-  const { data, error } = await supabase
-    .from("projects")
-    .select("*")
-    .order("order", { ascending: true });
+  try {
+    const readClient = getSupabaseReadClient();
+    const { data, error } = await selectProjects(readClient);
+    if (!error) {
+      const rows = (data ?? []) as ProjectRow[];
+      return sortProjects(rows.map(rowToProject));
+    }
 
-  if (error) throw error;
-  const rows = (data ?? []) as ProjectRow[];
-  return sortProjects(rows.map(rowToProject));
+    // Fallback: probeer service role voor omgevingen waar anon/RLS niet goed staat.
+    const admin = getSupabaseAdmin();
+    const adminResult = await selectProjects(admin);
+    if (adminResult.error) throw adminResult.error;
+    const rows = (adminResult.data ?? []) as ProjectRow[];
+    return sortProjects(rows.map(rowToProject));
+  } catch (e) {
+    console.error("getProjects failed:", e);
+    // Geen harde 500 op /projects; toon lege state i.p.v. crash.
+    return [];
+  }
 }
 
 export async function readProjectsFile(): Promise<ProjectsFile> {
