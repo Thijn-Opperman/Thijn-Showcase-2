@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import './PillNav.css';
@@ -33,14 +34,16 @@ const PillNav = ({
     ['--pill-text']: resolvedPillTextColor
   } as React.CSSProperties;
 
-  const isExternalLink = (href: string) =>
-    href.startsWith('http://') ||
-    href.startsWith('https://') ||
-    href.startsWith('//') ||
-    href.startsWith('mailto:') ||
-    href.startsWith('tel:');
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  const isRouterLink = (href: string) => href && !isExternalLink(href);
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [mobileOpen]);
 
   return (
     <div className="pill-nav-container">
@@ -51,6 +54,7 @@ const PillNav = ({
             href={items[0]?.href || '#'}
             aria-label="Home"
             role="menuitem"
+            onClick={() => setMobileOpen(false)}
           >
             <Image src={logo} alt={logoAlt} width={36} height={36} />
           </Link>
@@ -72,7 +76,43 @@ const PillNav = ({
             ))}
           </ul>
         </div>
+
+        <button
+          type="button"
+          className="mobile-menu-button mobile-only"
+          aria-expanded={mobileOpen}
+          aria-controls="pill-mobile-menu"
+          aria-label={mobileOpen ? 'Menu sluiten' : 'Menu openen'}
+          onClick={() => setMobileOpen((o) => !o)}
+        >
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+          <span className="hamburger-line" />
+        </button>
       </nav>
+
+      <div
+        id="pill-mobile-menu"
+        className={`mobile-menu-popover mobile-only${mobileOpen ? ' is-open' : ''}`}
+        role="menu"
+        aria-hidden={!mobileOpen}
+      >
+        <ul className="mobile-menu-list">
+          {items.map((item, i) => (
+            <li key={item.href || `m-${i}`} role="none">
+              <Link
+                role="menuitem"
+                href={item.href}
+                className={`mobile-menu-link${activeHref === item.href ? ' is-active' : ''}`}
+                aria-label={item.ariaLabel || item.label}
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

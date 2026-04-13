@@ -7,8 +7,9 @@ import Link from "next/link"
 export function Footer() {
   const navigationLinks = [
     { label: "Home", href: "/" },
-    { label: "About me", href: "/about" },
-    { label: "Projects", href: "/projects" },
+    { label: "About", href: "/about" },
+    { label: "Projecten", href: "/projects" },
+    { label: "CV", href: "/cv" },
   ]
 
   const socialLinks = [
@@ -20,7 +21,7 @@ export function Footer() {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/thijnopperman",
+      href: "https://www.linkedin.com/in/thijnopperman",
     },
     {
       icon: Mail,
@@ -153,8 +154,8 @@ export function Footer() {
             </p>
             
             {/* Humoristische notitie */}
-            <p className="text-white/40 text-xs italic">
-              Built with love, way too many errors, and an unhealthy amount of coffee
+            <p className="text-white/40 text-xs">
+              Next.js · TypeScript · Tailwind · Framer Motion
             </p>
           </motion.div>
 

@@ -2,6 +2,9 @@
 
 import { useRef } from "react"
 import { useReactToPrint } from "react-to-print"
+import Link from "next/link"
+import PillNav from "@/components/PillNav"
+import { Footer } from "@/components/footer"
 
 export default function CVPage() {
   const componentRef = useRef<HTMLDivElement>(null)
@@ -11,19 +14,44 @@ export default function CVPage() {
   })
 
   return (
-    <div className="min-h-screen bg-white p-8">
-      {/* Print Button */}
-      <div className="max-w-4xl mx-auto mb-6 print:hidden">
-        <button
-          onClick={handlePrint}
-          className="px-6 py-3 bg-[#4ecb71] text-white rounded-lg font-semibold hover:bg-[#45b865] transition-colors shadow-lg"
-        >
-          Print / Save as PDF
-        </button>
-      </div>
+    <main className="min-h-screen bg-[#0a1f1a] text-white">
+      <PillNav
+        logo="/logos/t-logo.png"
+        logoAlt="Thijn Opperman"
+        items={[
+          { label: "Home", href: "/" },
+          { label: "About", href: "/about" },
+          { label: "Projecten", href: "/projects" },
+          { label: "CV", href: "/cv" },
+        ]}
+        activeHref="/cv"
+        baseColor="#000"
+        pillColor="#4ecb71"
+        hoveredPillTextColor="#000"
+        pillTextColor="#000"
+      />
 
-      {/* CV Content */}
-      <div ref={componentRef} className="max-w-4xl mx-auto bg-white p-12 text-gray-900 print:p-8">
+      <div className="pt-28 pb-12 px-4 sm:px-6 print:pt-0 print:pb-0 print:px-0">
+        <div className="max-w-4xl mx-auto mb-6 print:hidden flex flex-wrap items-center gap-4">
+          <button
+            type="button"
+            onClick={handlePrint}
+            className="px-6 py-3 bg-[#4ecb71] text-black rounded-lg font-semibold hover:bg-[#45b865] transition-colors shadow-lg"
+          >
+            Printen / PDF opslaan
+          </button>
+          <Link
+            href="/"
+            className="text-sm text-white/80 hover:text-[#4ecb71] transition-colors underline-offset-4 hover:underline"
+          >
+            ← Terug naar portfolio
+          </Link>
+        </div>
+
+        <div
+          ref={componentRef}
+          className="max-w-4xl mx-auto bg-white p-8 sm:p-12 text-gray-900 print:p-8 rounded-xl shadow-2xl print:shadow-none print:rounded-none"
+        >
         
         {/* Header */}
         <div className="text-center mb-8 border-b-4 border-[#4ecb71] pb-6">
@@ -36,8 +64,12 @@ export default function CVPage() {
               t.opperman@student.fontys.nl
             </a>
             <span>•</span>
-            <a href="https://github.com/Thijn-Opperman" target="_blank" className="text-[#4ecb71] hover:underline">
+            <a href="https://github.com/Thijn-Opperman" target="_blank" rel="noopener noreferrer" className="text-[#4ecb71] hover:underline">
               GitHub
+            </a>
+            <span>•</span>
+            <a href="https://www.linkedin.com/in/thijnopperman" target="_blank" rel="noopener noreferrer" className="text-[#4ecb71] hover:underline">
+              LinkedIn
             </a>
           </div>
         </div>
@@ -145,7 +177,12 @@ export default function CVPage() {
             <strong>Werkprocessen:</strong> Research → Design → Code → Test • <strong>Tools:</strong> Figma, Adobe Photoshop, GitHub, Vercel • <strong>Focus:</strong> Performance Optimization, Responsive Design, Animation & Interactions
           </p>
         </section>
+        </div>
       </div>
-    </div>
+
+      <div className="print:hidden">
+        <Footer />
+      </div>
+    </main>
   )
 }

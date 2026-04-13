@@ -20,10 +20,12 @@ import {
 import Image from "next/image"
 import { 
   SiJavascript,
+  SiTypescript,
   SiHtml5,
   SiCss3,
   SiReact,
   SiNextdotjs,
+  SiTailwindcss,
   SiFigma,
   SiGithub,
   SiVercel
@@ -33,12 +35,14 @@ import {
 const technicalSkills = {
   "Programming Languages": [
     { name: "JavaScript", iconComponent: SiJavascript },
+    { name: "TypeScript", iconComponent: SiTypescript },
     { name: "HTML", iconComponent: SiHtml5 },
     { name: "CSS", iconComponent: SiCss3 },
   ],
   "Frameworks & Libraries": [
     { name: "React", iconComponent: SiReact },
     { name: "Next.js", iconComponent: SiNextdotjs },
+    { name: "Tailwind CSS", iconComponent: SiTailwindcss },
   ],
   "Design Tools": [
     { name: "Figma", iconComponent: SiFigma },

@@ -19,8 +19,9 @@ export default function AboutPage() {
         logoAlt="Thijn Opperman"
         items={[
           { label: 'Home', href: '/' },
-          { label: 'About me', href: '/about' },
-          { label: 'Projects', href: '/projects' }
+          { label: 'About', href: '/about' },
+          { label: 'Projecten', href: '/projects' },
+          { label: 'CV', href: '/cv' },
         ]}
         activeHref="/about"
         baseColor="#000"
@@ -112,7 +113,7 @@ export default function AboutPage() {
                     letterSpacing: "2px",
                   }}
                 >
-                  Hi, I am <br />Thijn Opperman
+                  Hoi, ik ben <br />Thijn Opperman
                 </motion.h1>
               </div>
 
@@ -183,7 +184,7 @@ export default function AboutPage() {
                 letterSpacing: "2px",
               }}
             >
-              PERSONALITY GALLERY
+              Persoonlijke gallery
             </motion.h2>
             <p className="text-white/70 text-xs md:text-sm">
               Scroll of sleep om momenten te verkennen die mij definiëren

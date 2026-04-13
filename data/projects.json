@@ -1,0 +1,140 @@
+{
+  "projects": [
+    {
+      "id": "quality-lodgings",
+      "order": 0,
+      "title": "Quality Lodgings",
+      "subtitle": "UX-ontwerp & gebruikersonderzoek · team van 4",
+      "description": "Verbetering van de gebruikerservaring voor een platform met luxe, onafhankelijke hotels in Europa. Focus op zoek- en hotelpagina’s: informatie overzichtelijker en de site intuïtiever maken, zonder de exclusieve merkuitstraling te verliezen.",
+      "problem": "De zoekfunctionaliteit voelde niet intuïtief aan en belangrijke informatie — zoals reviews en hotelopties — was lastig te vinden. Daardoor haakten bezoekers soms af en zochten ze verder buiten het platform.",
+      "approach": "Binnen het team was mijn focus de vernieuwde hotelpagina. Ik startte met gebruikersonderzoek: observaties, interviewvragen en gesprekken met echte gebruikers. Inzichten vertaalde ik naar user stories om knelpunten scherp te krijgen.\n\nVervolgens maakte ik paper prototypes om snel richtingen te testen. Op basis van feedback voegde ik o.a. reviews, vergelijkingsopties, extra beeldmateriaal en een uitklapbare beschrijving toe. Het ontwerp werkte ik uit in Figma, met interactieve onderdelen om de ervaring concreet te maken.",
+      "result": "Een hotelpagina die functioneel én visueel aansluit bij het merk. Het ontwerp kreeg positieve feedback van gebruikers, medestudenten en de opdrachtgever; zij gaven aan de inzichten te willen gebruiken bij verdere doorontwikkeling van de site.",
+      "challenges": "De balans vinden tussen een luxe, exclusieve merkbeleving en het toch overzichtelijk en vindbaar maken van alle relevante informatie — zonder dat het ‘druk’ of generiek wordt.",
+      "learnings": "Hoe sterk gebruikersonderzoek en iteratief ontwerp samenhangen, en hoe je echte gebruikersbehoeften vertaalt naar concrete ontwerpkeuzes — ook als esthetiek en functionaliteit spanning met elkaar hebben.",
+      "heroImage": "/projects/qualitylodgings.png",
+      "imagePosition": "right",
+      "techStack": [
+        "Figma",
+        "User research",
+        "Paper prototype",
+        "Interactieve prototype"
+      ],
+      "recruiter": {
+        "role": "Thijntje zijn",
+        "team": "MEt de boys",
+        "duration": "67 maanden",
+        "contribution": "Alles doen",
+        "impact": "Grote donders impact"
+      },
+      "links": {
+        "figma": "https://www.figma.com/design/QbTLSUu7nLg4ucJ7FT0cOQ/Quality-Lodgings?node-id=0-1&m=dev&t=EmCtCRFtOJWL4T8d-1",
+        "github": null,
+        "liveDemo": "https://thijn-showcase-goede.vercel.app"
+      },
+      "embeds": {
+        "liveDemo": true,
+        "figma": true
+      },
+      "categories": {
+        "wireframes": [
+          "/projects/qualitylodgings/Juiste paperprototype.jpg"
+        ],
+        "iterations": [
+          "/projects/qualitylodgings/Hotelpagina 1.png",
+          "/projects/qualitylodgings/Hotelpagina 2.png",
+          "/projects/qualitylodgings/Hotelpagina 3.png"
+        ],
+        "final": [
+          "/projects/qualitylodgings.png"
+        ]
+      }
+    },
+    {
+      "id": "paturain-naturel",
+      "order": 1,
+      "title": "Paturain Naturel",
+      "subtitle": "Digitaal campagneconcept · wireframes & campagne-website (team)",
+      "description": "Digitaal campagneconcept voor Paturain (verse roomkaas) om Paturain Naturel in Nederland zichtbaarder te maken. Focus op een interactieve, visueel sterke online ervaring: recepten, spellen en deelbare content om mensen op een natuurlijke manier bij het merk te betrekken.",
+      "problem": "Het product moest opvallen in een druk schap- en onlinelandschap. De campagne moest niet alleen informatief zijn, maar vooral uitnodigen tot interactie en merkbeleving.",
+      "approach": "Ik werkte gestructureerd samen met het team: o.a. samenwerkingscontract, onderzoeksvragen en een eigen user interview. Die inzichten legden de basis voor het concept.\n\nIk nam het voortouw bij de website en het campagneconcept: wireframes en interactieve prototypes in Figma, kleur- en stijlkeuzes, en het inpassen van elementen zoals recepten en spellen zodat het één coherent geheel werd.",
+      "result": "Een interactieve campagne die op een speelse manier bij het merk betrekt. Opdrachtgever en docenten waardeerden het eindresultaat en de samenwerking in het team.",
+      "challenges": "Alle onderdelen (content, interactie, merktonen) consistent houden, terwijl de campagne levendig en uitnodigend moest blijven.",
+      "learnings": "Hoe je van onderzoek en strategie naar een concreet digitaal concept gaat — en hoe je keuzes kunt onderbouwen richting team en opdrachtgever.",
+      "heroImage": "/projects/paturain.png",
+      "imagePosition": "left",
+      "techStack": [
+        "Figma",
+        "HTML/CSS",
+        "Concept & campagne",
+        "User interview"
+      ],
+      "links": {
+        "figma": "https://www.figma.com/design/JElL8mbdGVf0ySmIW0MSO4/Paturain-Naturel?node-id=0-1&m=dev&t=8RHz8dJI4UjZD3ry-1",
+        "github": "https://github.com/Thijn-Opperman/Paturain-website-homepagina-",
+        "liveDemo": null
+      },
+      "embeds": {
+        "liveDemo": false,
+        "figma": true
+      },
+      "categories": {
+        "wireframes": [
+          "/paturain/wireframe.png"
+        ],
+        "iterations": [
+          "/paturain/persona.png",
+          "/paturain/moadboard.png"
+        ],
+        "final": [
+          "/paturain/definitief design.png",
+          "/paturain/definitief design 2.png"
+        ]
+      }
+    },
+    {
+      "id": "rosh-lenovo-legion",
+      "order": 2,
+      "title": "Rosh / Lenovo Legion",
+      "subtitle": "UX voor online toernooitool · hub, dashboard & mini-game (team)",
+      "description": "Ontwerp van een aanpasbare online toernooitool om kijkers vóór, tijdens en na online toernooien te betrekken. Gericht op Twitch-gebruikers en mobile-first, met o.a. dashboards en een mini-game om engagement vast te houden.",
+      "problem": "Hoe houd je kijkers betrokken rondom een toernooi op platforms als Twitch, op zowel telefoon als groter scherm? De tool moest personaliseerbaar zijn en ruimte bieden voor interactie vóór en na de live momenten.",
+      "approach": "Samen met Bor, Jasper en Tim werkte ik van contract en onderzoek (o.a. interviews) naar customer journeys en persona’s. Daarna richtte ik me op wireframes en prototypes in Figma: hub, dashboard met eigen aanpasbare pagina’s, en de mini-game ‘Beat The Pro’ om langer op de toernooipagina te blijven.\n\nWe werkten iteratief: regelmatige feedback in het team en met externen, en waar nuttig gebruik van AI-tools om sneller te exploreren — met blijvende kwaliteitscontrole op inhoud en UX.",
+      "result": "Een uitgewerkt ontwerp voor een personaliseerbare toernooi-ervaring met duidelijke flows voor hub en dashboard, en een concrete invulling van engagement rondom het toernooi. Concepten werden scherper door tussentijdse toetsing met de briefing.",
+      "challenges": "Mobile-first houden terwijl je rijke interactie en personalisatie wilt aanbieden, én parallel verwachtingen van de opdrachtgever blijven afstemmen terwijl het concept groeit.",
+      "learnings": "Sterker in user-centered design en prototyping; bewuster omgaan met AI als hulpmiddel zonder je eigen kritische blik te verliezen; en het belang van flexibiliteit — concepten steeds opnieuw toetsen aan gebruikersbehoeften en projectdoelen.",
+      "heroImage": "/projects/rosh.png",
+      "imagePosition": "right",
+      "techStack": [
+        "Figma",
+        "User research",
+        "Prototyping",
+        "Twitch / esports context"
+      ],
+      "links": {
+        "figma": "https://www.figma.com/design/2e57wCQuvYY6CRKVGSq6kD/Rosh-Project?node-id=0-1&m=dev&t=MqZl4zUfY8vIdTwj-1",
+        "github": "https://github.com/Jasper-van-Tilborg/roshproject",
+        "liveDemo": null
+      },
+      "embeds": {
+        "liveDemo": false,
+        "figma": true
+      },
+      "categories": {
+        "wireframes": [
+          "/rosh/wireframe.png",
+          "/rosh/wireframe dashboard.png",
+          "/rosh/wireframe toernooi pagina.png"
+        ],
+        "iterations": [
+          "/rosh/persona toernooi.png",
+          "/rosh/eerste design toernooi pagina.png"
+        ],
+        "final": [
+          "/rosh/design dashboard.png",
+          "/rosh/design bracket.png",
+          "/rosh/bestandopbouw.png"
+        ]
+      }
+    }
+  ]
+}

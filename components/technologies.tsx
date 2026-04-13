@@ -10,7 +10,9 @@ import {
   SiNextdotjs,
   SiHtml5,
   SiCss3,
-  SiJavascript
+  SiJavascript,
+  SiTypescript,
+  SiTailwindcss,
 } from "react-icons/si"
 
 export function Technologies() {
@@ -61,6 +63,16 @@ export function Technologies() {
       node: <SiJavascript size={48} style={{ color: '#4ecb71' }} />,
       alt: "JavaScript",
       title: "JavaScript"
+    },
+    {
+      node: <SiTypescript size={48} style={{ color: '#4ecb71' }} />,
+      alt: "TypeScript",
+      title: "TypeScript",
+    },
+    {
+      node: <SiTailwindcss size={48} style={{ color: '#4ecb71' }} />,
+      alt: "Tailwind CSS",
+      title: "Tailwind CSS",
     },
   ]
 

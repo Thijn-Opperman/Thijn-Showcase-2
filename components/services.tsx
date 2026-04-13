@@ -359,7 +359,7 @@ export function Services() {
                   : '0 0 10px rgba(78, 203, 113, 0.2)',
               }}
             >
-              {showMoreServices ? 'Show Less' : 'More Services'}
+              {showMoreServices ? 'Minder tonen' : 'Meer diensten'}
             </motion.button>
           </motion.div>
         </div>

@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import { ArrowRight, Github } from "lucide-react"
 import Image from "next/image"
 import CircularText from "./CircularText"
-import PillNav from "./PillNav"
 
 export function Hero() {
   return (
@@ -27,7 +26,7 @@ export function Hero() {
       {/* PillNav Navigation Bar - Removed from here, added as separate component */}
 
       {/* Main Content - Centered */}
-      <div className="flex-1 relative flex items-center justify-center px-20">
+      <div className="flex-1 relative flex items-center justify-center px-4 sm:px-10 lg:px-20">
         <div className="relative w-full h-screen flex items-center justify-center max-w-[1600px]">
           
           {/* Behind Text - THIJN OPPERMAN */}
@@ -234,7 +233,7 @@ export function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute left-20 bottom-32 z-50"
+          className="absolute left-4 sm:left-10 lg:left-20 bottom-24 sm:bottom-28 lg:bottom-32 z-50 max-w-[calc(100vw-2rem)]"
         >
           <div className="flex flex-col gap-3 items-start">
             <motion.a
@@ -256,7 +255,7 @@ export function Hero() {
                 boxShadow: "0 0 15px rgba(78, 203, 113, 0.3)",
               }}
             >
-              Get in touch
+              Neem contact op
               <ArrowRight className="h-4 w-4" />
             </motion.a>
             <motion.a
@@ -270,16 +269,15 @@ export function Hero() {
                 boxShadow: "0 0 30px rgba(78, 203, 113, 0.6)" 
               }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-between gap-3 px-8 py-3 text-sm font-bold transition-all uppercase tracking-wide rounded-full backdrop-blur-md w-64"
+              className="inline-flex items-center justify-between gap-3 px-8 py-3 text-sm font-bold transition-all uppercase tracking-wide rounded-full backdrop-blur-md w-64 sm:ml-10"
               style={{ 
                 backgroundColor: "transparent",
                 color: "#4ecb71",
                 border: "2px solid #4ecb71",
                 boxShadow: "0 0 15px rgba(78, 203, 113, 0.3)",
-                marginLeft: "40px",
               }}
             >
-              Download CV
+              Bekijk CV
               <ArrowRight className="h-4 w-4" />
             </motion.a>
           </div>

@@ -20,7 +20,7 @@ export function About() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              Nice to meet you!
+              Leuk je te ontmoeten
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
               Ik ben Thijn, een gepassioneerde front-end developer met een oog

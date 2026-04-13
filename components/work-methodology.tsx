@@ -34,7 +34,7 @@ const steps = [
     title: "Nu - Toekomst",
     number: "04",
     description:
-      "Ik zit momenteel midden in mijn derde semester in Front-End Development, waar ik echt van geniet. Ik hoop tijdens deze tijd veel te leren. Ik weet nog niet zeker wat ik na dit semester wil doen, omdat ik veel dingen interessant vind. Ik ben nieuwsgierig naar een breed scala aan onderwerpen en zeer gemotiveerd om nieuwe dingen te leren!",
+      "Ik zit in mijn derde semester Front-End Development en zoek een stage of meewerkplek waar ik kan bijdragen aan echte producten: samenwerken in een team, leren van code reviews en steeds beter worden in React, toegankelijkheid en performance. Ik sta open voor rollen waarin design en development samenkomen.",
     color: "#4ECB71",
   },
 ]

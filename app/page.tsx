@@ -16,8 +16,9 @@ export default function Home() {
         logoAlt="Thijn Opperman"
         items={[
           { label: 'Home', href: '/' },
-          { label: 'About me', href: '/about' },
-          { label: 'Projects', href: '/projects' }
+          { label: 'About', href: '/about' },
+          { label: 'Projecten', href: '/projects' },
+          { label: 'CV', href: '/cv' },
         ]}
         activeHref="/"
         baseColor="#000"
