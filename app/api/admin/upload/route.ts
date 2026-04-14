@@ -3,6 +3,7 @@ import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import path from "path";
 
 const ALLOWED = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
+const MAX_FILE_SIZE_BYTES = 8 * 1024 * 1024;
 
 function safeName(name: string): string {
   return name
@@ -25,9 +26,19 @@ export async function POST(request: Request) {
     if (!ALLOWED.has(file.type)) {
       return NextResponse.json({ error: "Alleen jpg/png/webp/gif toegestaan." }, { status: 400 });
     }
+    if (file.size > MAX_FILE_SIZE_BYTES) {
+      return NextResponse.json({ error: "Bestand te groot (max 8MB)." }, { status: 400 });
+    }
 
-    const ext = path.extname(file.name || "").toLowerCase() || ".jpg";
-    const base = safeName(path.basename(file.name || "upload", ext)) || "upload";
+    const extByMime: Record<string, string> = {
+      "image/jpeg": ".jpg",
+      "image/png": ".png",
+      "image/webp": ".webp",
+      "image/gif": ".gif",
+    };
+    const sourceExt = path.extname(file.name || "");
+    const ext = extByMime[file.type] ?? ".jpg";
+    const base = safeName(path.basename(file.name || "upload", sourceExt)) || "upload";
     const stamp = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     const fileName = `${stamp}-${base}${ext}`;
 
