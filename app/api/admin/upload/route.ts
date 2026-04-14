@@ -3,7 +3,6 @@ import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import path from "path";
 
 const ALLOWED = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
-const MAX_FILE_SIZE_BYTES = 8 * 1024 * 1024;
 
 function safeName(name: string): string {
   return name
@@ -11,6 +10,29 @@ function safeName(name: string): string {
     .replace(/[^a-z0-9._-]/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+async function ensureBucketExists(bucket: string) {
+  const supabase = getSupabaseAdmin();
+  const { data, error } = await supabase.storage.getBucket(bucket);
+
+  if (data && !error) return supabase;
+
+  const notFound = (error as { statusCode?: string | number } | null)?.statusCode === 404;
+  if (!notFound && error) {
+    throw new Error(`Bucket check mislukt: ${error.message}`);
+  }
+
+  const { error: createError } = await supabase.storage.createBucket(bucket, {
+    public: true,
+    allowedMimeTypes: [...ALLOWED],
+  });
+
+  if (createError && !createError.message.toLowerCase().includes("already exists")) {
+    throw new Error(`Bucket aanmaken mislukt: ${createError.message}`);
+  }
+
+  return supabase;
 }
 
 export async function POST(request: Request) {
@@ -26,26 +48,16 @@ export async function POST(request: Request) {
     if (!ALLOWED.has(file.type)) {
       return NextResponse.json({ error: "Alleen jpg/png/webp/gif toegestaan." }, { status: 400 });
     }
-    if (file.size > MAX_FILE_SIZE_BYTES) {
-      return NextResponse.json({ error: "Bestand te groot (max 8MB)." }, { status: 400 });
-    }
 
-    const extByMime: Record<string, string> = {
-      "image/jpeg": ".jpg",
-      "image/png": ".png",
-      "image/webp": ".webp",
-      "image/gif": ".gif",
-    };
-    const sourceExt = path.extname(file.name || "");
-    const ext = extByMime[file.type] ?? ".jpg";
-    const base = safeName(path.basename(file.name || "upload", sourceExt)) || "upload";
+    const ext = path.extname(file.name || "").toLowerCase() || ".jpg";
+    const base = safeName(path.basename(file.name || "upload", ext)) || "upload";
     const stamp = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     const fileName = `${stamp}-${base}${ext}`;
 
     const bytes = Buffer.from(await file.arrayBuffer());
     const bucket = process.env.SUPABASE_STORAGE_BUCKET ?? "project-assets";
     const objectPath = path.posix.join("projects", scope, fileName);
-    const supabase = getSupabaseAdmin();
+    const supabase = await ensureBucketExists(bucket);
 
     const { error: uploadError } = await supabase.storage.from(bucket).upload(objectPath, bytes, {
       contentType: file.type,

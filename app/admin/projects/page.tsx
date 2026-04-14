@@ -145,8 +145,7 @@ export default function AdminProjectsPage() {
           <h1 className="text-3xl font-black text-[#4ecb71]">Admin — projecten</h1>
           <p className="text-white/65 text-sm leading-relaxed">
             Leeg veld = niet zichtbaar op je projectpagina. Je kunt nu direct afbeeldingen uploaden
-            zonder URL; die gaan naar je Supabase Storage bucket{" "}
-            <code className="text-primary/90">project-assets</code>.
+            zonder URL; die gaan naar je Supabase bucket <code className="text-primary/90">project-assets</code>.
           </p>
         </header>
 
